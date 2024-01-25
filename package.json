@@ -1,0 +1,79 @@
+{
+  "name": "lava-tester",
+  "displayName": "Lava Tester",
+  "description": "Execute lava from vscode and see the results!",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:lava"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "lava-tester.helloWorld",
+        "title": "Hello World"
+      },
+      {
+        "command": "extension.runLavaFile",
+        "title": "Run Lava File"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Lava Runner Configuration",
+      "properties": {
+        "lavaRunner.endpoint": {
+          "type": "string",
+          "default": "",
+          "description": "The API endpoint to run Lava files."
+        },
+        "lavaRunner.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "The API key for the Lava Runner service."
+        },
+        "lavaRunner.person": {
+          "type": "string",
+          "default": "",
+          "description": "Person variable for the API call."
+        },
+        "lavaRunner.group": {
+          "type": "string",
+          "default": "",
+          "description": "Group variable for the API call."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3",
+    "ts-loader": "^9.5.1",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "@vscode/test-cli": "^0.0.4",
+    "@vscode/test-electron": "^2.3.8"
+  }
+}
