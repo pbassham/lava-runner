@@ -22,6 +22,10 @@
       {
         "command": "extension.runLavaFile",
         "title": "Run Lava File"
+      },
+      {
+        "command": "lavaRunner.editConfig",
+        "title": "Edit Configuration"
       }
     ],
     "configuration": {
@@ -47,9 +51,53 @@
           "type": "string",
           "default": "",
           "description": "Group variable for the API call."
-        }
+        },
+        "lavaRunner.rootUrl": {
+          "type": "string",
+          "default": "https://rock.ccbcfamily.org",
+          "description": "The root URL for resolving relative links in the webview."
       }
-    }
+      }
+    },
+    "menus": {
+      "editor/title": [
+        {
+          "when": "resourceLangId == lava",
+          "command": "extension.runLavaFile",
+          "group": "navigation"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "lavaRunnerConfiguration",
+          "title": "Lava Runner",
+          "icon": "media/lava-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "lavaRunnerConfiguration": [
+        {
+          "id": "lavaRunnerConfigPanel",
+          "name": "Configuration",
+          "icon": "media/config-icon.svg"
+        },
+        {
+          "id": "lavaRunnerConfigView",
+          "name": "Settings",
+          "icon": "media/settings-icon.svg"
+      }
+      ]
+    },
+    "view/item/context": [
+      {
+        "when": "view == lavaRunnerConfigPanel && viewItem == configItem",
+        "command": "lavaRunner.editConfig",
+        "group": "inline"
+      }
+    ]
   },
   "scripts": {
     "vscode:prepublish": "npm run package",
@@ -63,17 +111,20 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.85.0",
     "@types/mocha": "^10.0.6",
     "@types/node": "18.x",
+    "@types/vscode": "^1.85.0",
     "@typescript-eslint/eslint-plugin": "^6.15.0",
     "@typescript-eslint/parser": "^6.15.0",
-    "eslint": "^8.56.0",
-    "typescript": "^5.3.3",
-    "ts-loader": "^9.5.1",
-    "webpack": "^5.89.0",
-    "webpack-cli": "^5.1.4",
     "@vscode/test-cli": "^0.0.4",
-    "@vscode/test-electron": "^2.3.8"
+    "@vscode/test-electron": "^2.3.8",
+    "eslint": "^8.56.0",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.3",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "axios": "^1.6.7"
   }
 }
