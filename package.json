@@ -2,7 +2,7 @@
   "name": "lava-runner",
   "displayName": "Lava Runner",
   "description": "Execute RockRMS lava templating language from vscode and see the results!",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -10,6 +10,8 @@
     "type": "git",
     "url": "https://github.com/pbassham/lava-runner"
   },
+  "publisher": "PhilipBassham",
+  "icon": "images/lava-logo-128.png",
   "categories": [
     "Other"
   ],
@@ -23,8 +25,8 @@
         "command": "extension.runLavaFile",
         "title": "Lava Runner: Run LAVA",
         "icon": {
-          "light": "src/lava-logo-mono.svg",
-          "dark": "src/lava-logo-mono.svg"
+          "light": "images/lava-logo-mono.svg",
+          "dark": "images/lava-logo-mono.svg"
         }
       },
       {
@@ -40,7 +42,7 @@
           "type": "string",
           "default": "https://rock.ccbcfamily.org",
           "description": "The root URL of your Rock instance. Used for /api calls and as root for resolving relative links in the webview previews. Do not include trailing slash '/'"
-      },
+        },
         "lavaRunner.endpoint": {
           "type": "string",
           "default": "/api/Lava/RenderTemplate",
