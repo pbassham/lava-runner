@@ -1,6 +1,6 @@
 # lava-tester README
 
-This is the README for your extension "lava-tester". After writing up a brief description, we recommend including the following sections.
+This is the README for your extension "lava-runner". After writing up a brief description, we recommend including the following sections.
 
 - [ ] TODO: Add a link to the LAVA documentation
 - [ ] TODO: Make it throw lava errors based on the schema

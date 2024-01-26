@@ -1,6 +1,6 @@
 {
-  "name": "lava-tester",
-  "displayName": "Lava Tester",
+  "name": "lava-runner",
+  "displayName": "Lava Runner",
   "description": "Execute RockRMS lava templating language from vscode and see the results!",
   "version": "0.0.1",
   "engines": {
