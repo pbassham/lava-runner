@@ -1,7 +1,7 @@
 {
   "name": "lava-tester",
   "displayName": "Lava Tester",
-  "description": "Execute lava from vscode and see the results!",
+  "description": "Execute RockRMS lava templating language from vscode and see the results!",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.85.0"
@@ -16,10 +16,6 @@
   "contributes": {
     "commands": [
       {
-        "command": "lava-tester.helloWorld",
-        "title": "Hello World"
-      },
-      {
         "command": "extension.runLavaFile",
         "title": "Run Lava File"
       },
@@ -32,31 +28,21 @@
       "type": "object",
       "title": "Lava Runner Configuration",
       "properties": {
+        "lavaRunner.rootUrl": {
+          "type": "string",
+          "default": "https://rock.ccbcfamily.org",
+          "description": "The root URL of your Rock instance. Used for /api calls and as root for resolving relative links in the webview previews. Do not include trailing slash '/'"
+      },
         "lavaRunner.endpoint": {
           "type": "string",
-          "default": "",
-          "description": "The API endpoint to run Lava files."
+          "default": "/api/Lava/RenderTemplate",
+          "description": "The API endpoint to run Lava files. (Default: /api/Lava/RenderTemplate)"
         },
         "lavaRunner.apiKey": {
           "type": "string",
           "default": "",
-          "description": "The API key for the Lava Runner service."
-        },
-        "lavaRunner.person": {
-          "type": "string",
-          "default": "",
-          "description": "Person variable for the API call."
-        },
-        "lavaRunner.group": {
-          "type": "string",
-          "default": "",
-          "description": "Group variable for the API call."
-        },
-        "lavaRunner.rootUrl": {
-          "type": "string",
-          "default": "https://rock.ccbcfamily.org",
-          "description": "The root URL for resolving relative links in the webview."
-      }
+          "description": "The API key for the Lava Runner service. Get from /admin/security/rest-keys in your Rock instance."
+        }
       }
     },
     "menus": {
@@ -67,37 +53,7 @@
           "group": "navigation"
         }
       ]
-    },
-    "viewsContainers": {
-      "activitybar": [
-        {
-          "id": "lavaRunnerConfiguration",
-          "title": "Lava Runner",
-          "icon": "media/lava-icon.svg"
-        }
-      ]
-    },
-    "views": {
-      "lavaRunnerConfiguration": [
-        {
-          "id": "lavaRunnerConfigPanel",
-          "name": "Configuration",
-          "icon": "media/config-icon.svg"
-        },
-        {
-          "id": "lavaRunnerConfigView",
-          "name": "Settings",
-          "icon": "media/settings-icon.svg"
-      }
-      ]
-    },
-    "view/item/context": [
-      {
-        "when": "view == lavaRunnerConfigPanel && viewItem == configItem",
-        "command": "lavaRunner.editConfig",
-        "group": "inline"
-      }
-    ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run package",
