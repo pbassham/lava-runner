@@ -1,12 +1,3 @@
-# Lava-Runner README
-
-This 
-
-- [ ] TODO: Add a link to the LAVA documentation
-- [ ] TODO: Make it throw lava errors based on the schema
-
-## Features
-
 # Lava Runner for VSCode
 
 Welcome to **Lava Runner** for VSCode, an extension designed specifically for developers working with Lava code in the context of the RockRMS church management system. This powerful extension enables you to run Lava code remotely on a RockRMS server, directly from your local development environment. With Lava Runner, you can effortlessly execute your code and view the results through a convenient preview window, all without leaving the comfort of VSCode.
@@ -17,6 +8,9 @@ Welcome to **Lava Runner** for VSCode, an extension designed specifically for de
 - **Real-time Results:** View execution results in a dedicated preview window within VSCode.
 - **Streamlined Workflow:** Eliminates the need for manual file transfers or separate testing environments, making your development process faster and more efficient.
 - **Secure Connection:** Utilizes secure API calls to ensure your code and data remain protected.
+
+- [ ] TODO: Add a link to the LAVA documentation
+- [ ] TODO: Make it throw lava errors based on the schema
 
 ## Prerequisites
 
