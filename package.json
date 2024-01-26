@@ -17,11 +17,15 @@
     "commands": [
       {
         "command": "extension.runLavaFile",
-        "title": "Run Lava File"
+        "title": "Lava Runner: Run LAVA",
+        "icon": {
+          "light": "src/lava-logo-mono.svg",
+          "dark": "src/lava-logo-mono.svg"
+        }
       },
       {
-        "command": "lavaRunner.editConfig",
-        "title": "Edit Configuration"
+        "command": "lavaRunner.configure",
+        "title": "Lava Runner: Configure"
       }
     ],
     "configuration": {

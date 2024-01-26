@@ -88,6 +88,12 @@ export function activate(context: vscode.ExtensionContext) {
 
     context.subscriptions.push(runLavaFileCommand);
 
+
+    let configureCommand = vscode.commands.registerCommand('lavaRunner.configure', () => {
+        vscode.commands.executeCommand('workbench.action.openSettings', 'lavaRunner');
+    });
+    context.subscriptions.push(configureCommand);
+
 }
 
 export function deactivate() {}
