@@ -2,6 +2,10 @@
 
 Welcome to **Lava Runner** for VSCode, an extension designed specifically for developers working with Lava code in the context of the RockRMS church management system. This extension enables you to run Lava code remotely on a RockRMS server, directly from your local development environment. With Lava Runner, you can execute your Lava code and view the results through a convenient preview window, similar to how the 'Lava Tester' plugin works for the frontend of Rock, but without leaving the comfort and power of the VSCode editor.
 
+## Preview 
+![](https://raw.githubusercontent.com/pbassham/lava-runner/master/images/preview-vars.png)
+
+
 ## Features
 
 - **Remote Execution:** Send the current Lava file as the body of an API call to a RockRMS server for execution.
