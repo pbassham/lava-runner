@@ -2,7 +2,7 @@
   "name": "lava-runner",
   "displayName": "Lava Runner",
   "description": "Execute RockRMS lava templating language from vscode and see the results!",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -14,6 +14,16 @@
   "icon": "images/lava-logo-128.png",
   "categories": [
     "Other"
+  ],
+  "keywords": [
+    "lava",
+    "rockrms",
+    "rock",
+    "templating",
+    "template",
+    "render",
+    "rendering",
+    "rendering engine"
   ],
   "activationEvents": [
     "onLanguage:lava"
@@ -32,6 +42,14 @@
       {
         "command": "lavaRunner.configure",
         "title": "Lava Runner: Configure"
+      },
+      {
+        "command": "entitiesView.refresh",
+        "title": "Refresh Entities",
+        "icon": {
+          "light": "resources/light/refresh.svg",
+          "dark": "resources/dark/refresh.svg"
+        }
       }
     ],
     "configuration": {
@@ -61,6 +79,21 @@
           "when": "resourceLangId == lava",
           "command": "extension.runLavaFile",
           "group": "navigation"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "entitiesView.refresh",
+          "when": "view == entitiesView",
+          "group": "navigation"
+        }
+      ]
+    },
+    "views": {
+      "explorer": [
+        {
+          "id": "entitiesView",
+          "name": "Entities"
         }
       ]
     }

@@ -2,8 +2,11 @@
 
 All notable changes to the "lava-runner" extension will be documented in this file.
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+## [0.1.0]
+- Wrap the preview html in a <base> tag to allow relative links to work
+- Add Boostrap and theme css to the preview
+- Add Entity Tree View to list all entities in the Rock instance
 
-## [Unreleased]
+## [0.0.1]
 
 - Initial release

@@ -1,6 +1,6 @@
 # Lava Runner for VSCode
 
-Welcome to **Lava Runner** for VSCode, an extension designed specifically for developers working with Lava code in the context of the RockRMS church management system. This powerful extension enables you to run Lava code remotely on a RockRMS server, directly from your local development environment. With Lava Runner, you can effortlessly execute your code and view the results through a convenient preview window, all without leaving the comfort of VSCode.
+Welcome to **Lava Runner** for VSCode, an extension designed specifically for developers working with Lava code in the context of the RockRMS church management system. This extension enables you to run Lava code remotely on a RockRMS server, directly from your local development environment. With Lava Runner, you can execute your Lava code and view the results through a convenient preview window, similar to how the 'Lava Tester' plugin works for the frontend of Rock, but without leaving the comfort and power of the VSCode editor.
 
 ## Features
 
@@ -8,9 +8,14 @@ Welcome to **Lava Runner** for VSCode, an extension designed specifically for de
 - **Real-time Results:** View execution results in a dedicated preview window within VSCode.
 - **Streamlined Workflow:** Eliminates the need for manual file transfers or separate testing environments, making your development process faster and more efficient.
 - **Secure Connection:** Utilizes secure API calls to ensure your code and data remain protected.
+- **Use With Magnus:** Lava Runner can run lava in files seamlessly with the [Magnus](https://github.com/Triumph-Tech/magnus-vscode) extension for VSCode, enabling you to run Lava code locally or remotely with a single click.
 
-- [ ] TODO: Add a link to the LAVA documentation
-- [ ] TODO: Make it throw lava errors based on the schema
+## Roadmap
+- [x] Enable image preview (blocked because CORS)
+- [x] Embed stylesheet in preview
+- [-] Make entity tree in sidebar
+- [ ] Add code folding
+- [ ] Make it throw lava errors based on the schema
 
 ## Prerequisites
 
@@ -49,7 +54,7 @@ Ensure that your RockRMS server is properly secured and that API access is restr
 
 ## Support
 
-For support, feature requests, or bug reports, please visit the [Lava Runner GitHub repository](https://github.com/your-repo/lava-runner) and open an issue.
+For support, feature requests, or bug reports, please visit the [Lava Runner GitHub repository](https://github.com/pbassham/lava-runner) and open an issue.
 
 ## License
 
