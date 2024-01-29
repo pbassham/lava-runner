@@ -42,6 +42,7 @@ export function activate(context: vscode.ExtensionContext) {
         const apiKey = config.get("apiKey") as string;
         const rootUrl = config.get("rootUrl") as string;
         const endpoint = config.get("endpoint") as string;
+        const themeCss = config.get("themeCss") as string;
 
         axios
           .post(`${rootUrl}${endpoint}`, content, {
@@ -58,7 +59,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     <link rel="stylesheet" href="${rootUrl}/Themes/Rock/Styles/bootstrap.css" type="text/css" />
     
-    <link rel="stylesheet" href="${rootUrl}/Themes/ccbc/Styles/theme.css" type="text/css">
+    <link rel="stylesheet" href="${rootUrl}${themeCss}" type="text/css">
     <!-- Other head content -->
 </head>
 <body>
