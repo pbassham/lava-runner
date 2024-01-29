@@ -1,6 +1,8 @@
 # Change Log
 
 All notable changes to the "lava-runner" extension will be documented in this file.
+## [0.1.1]
+- Update README with preview images
 
 ## [0.1.0]
 - Wrap the preview html in a <base> tag to allow relative links to work
