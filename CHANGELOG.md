@@ -1,6 +1,9 @@
 # Change Log
 
 All notable changes to the "lava-runner" extension will be documented in this file.
+## [0.2.0]
+- Add setting to set the css path for the preview (Thanks Michael Allen!)
+
 ## [0.1.1]
 - Update README with preview images
 

@@ -73,6 +73,16 @@ Ensure that your RockRMS server is properly secured and that API access is restr
 
 For support, feature requests, or bug reports, please visit the [Lava Runner GitHub repository](https://github.com/pbassham/lava-runner) and open an issue.
 
+## Contributing to Lava Runner
+You can contribute to Lava Runner by submitting a pull request. 
+
+### Some tips on getting started:
+1. The main configuration for adding views, settings, and commands is in the `package.json` file. The `contributes` section is where feature settings are added.
+2. The main code for the extension is in the `src` folder. The `extension.ts` file is the entry point for the extension.
+3. The `src/entitiesProvider.ts` file is where the entity tree view is created.
+4. This extension was bootstrapped using the [VSCode Extension Generator](https://code.visualstudio.com/api/get-started/your-first-extension). Read the [VSCode API documentation](https://code.visualstudio.com/api) to learn more about how to configure features.
+
+
 ## License
 
 Lava Runner is licensed under the [MIT License](https://opensource.org/licenses/MIT).

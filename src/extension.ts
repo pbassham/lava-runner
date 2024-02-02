@@ -115,7 +115,7 @@ export function activate(context: vscode.ExtensionContext) {
   );
   context.subscriptions.push(configureCommand);
 
-  // ENTITIES PROVIDER
+  // ENTITIES PROVIDER: to show entities in the sidebar
 
   const entitiesProvider = new EntitiesProvider();
   vscode.window.registerTreeDataProvider("entitiesView", entitiesProvider);
