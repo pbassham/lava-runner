@@ -70,6 +70,11 @@
           "type": "string",
           "default": "",
           "description": "The API key for the Lava Runner service. Get from /admin/security/rest-keys in your Rock instance."
+        },
+        "lavaRunner.themeCss": {
+          "type": "string",
+          "default": "/Themes/Rock/Styles/theme.css",
+          "description": "Relative path to your theme's CSS file. (Default: /Themes/Rock/Styles/theme.css)"
         }
       }
     },
