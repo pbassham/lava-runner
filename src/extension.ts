@@ -37,16 +37,26 @@ export function activate(context: vscode.ExtensionContext) {
     () => {
       const editor = vscode.window.activeTextEditor;
       if (editor) {
-        const content = editor.document.getText();
         const config = vscode.workspace.getConfiguration("lavaRunner");
+        const lavaToPrepend = config.get("request.lavaToPrepend") as string;
+        const lavaToAppend = config.get("request.lavaToAppend") as string;
+
+        const content = editor.document.getText();
+        
+        // prepend default lava variables to content 
+        const contentWithDefaultLavaVariables = `${lavaToPrepend}\n${content}\n${lavaToAppend}`;
         const apiKey = config.get("apiKey") as string;
         const rootUrl = config.get("rootUrl") as string;
         const endpoint = config.get("endpoint") as string;
-        const themeCss = config.get("themeCss") as string;
-        const fontAwesomeCdnLink = config.get("fontAwesomeCdnLink") as string;
-
+        const themeCss = config.get("preview.themeCss") as string;
+        const fontAwesomeCdnUrl = config.get("preview.fontAwesomeCdnLink") as string;
+        const chartjsScriptUrl = config.get("preview.chartjsScript") as string;
+        const headContent = config.get("preview.headContent") as string;
+        const startBody = config.get("preview.startBody") as string;
+        const endBody = config.get("preview.endBody") as string;
+        
         axios
-          .post(`${rootUrl}${endpoint}`, content, {
+          .post(`${rootUrl}${endpoint}`, contentWithDefaultLavaVariables, {
             headers: { "Authorization-Token": `${apiKey}` },
           })
           .then((response) => {
@@ -64,12 +74,17 @@ export function activate(context: vscode.ExtensionContext) {
     <script src="${rootUrl}/Scripts/Bundles/RockJQueryLatest"></script>
     <script src="${rootUrl}/Scripts/Bundles/RockUI"></script>
     <script src="${rootUrl}/Scripts/Bundles/RockLibs"></script>
-    <link rel="stylesheet" href="${fontAwesomeCdnLink}" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+    ${fontAwesomeCdnUrl ? `<link rel="stylesheet" href="${fontAwesomeCdnUrl}" crossorigin="anonymous" referrerpolicy="no-referrer" />` : ''}
+    
+    ${chartjsScriptUrl ? `<script src="${chartjsScriptUrl}"></script>` : ''}
+    
+    ${headContent}
     <!-- Other head content -->
 </head>
 <body>
+    ${startBody}
     ${responseHtml}
+    ${endBody}
 </body>
 </html>`;
 

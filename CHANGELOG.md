@@ -1,6 +1,13 @@
 # Change Log
 
 All notable changes to the "lava-runner" extension will be documented in this file.
+## [0.5.0]
+- Added Configuration options for the preview panel
+- Prepend and Append Lava to each request so that it is included in each response. Allows you to add Lava to be run at the beginning and end of each request. This is useful for setting variables that you want to use in each request.
+- Head: Added setting to set additional content that will be included in the `<head>` of the preview panel
+- Body: Added setting to set additional content that will be included beginning and end of the `<body>` tag of the preview panel. 
+- Organized Settings better into sections
+
 ## [0.3.1]
 - Added chart.js script to be able to use the Chart.js library in the preview
 - Added setting to be able to set the Chart.js script path

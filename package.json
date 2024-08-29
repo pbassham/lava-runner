@@ -2,7 +2,7 @@
   "name": "lava-runner",
   "displayName": "Lava Runner",
   "description": "Execute RockRMS lava templating language from vscode and see the results!",
-  "version": "0.3.1",
+  "version": "0.5.0",
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -54,37 +54,83 @@
     ],
     "configuration": {
       "type": "object",
-      "title": "Lava Runner Configuration",
+      "title": "Lava Runner",
       "properties": {
         "lavaRunner.rootUrl": {
           "type": "string",
+          "order": 0,
           "default": "https://rock.ccbcfamily.org",
           "description": "The root URL of your Rock instance. Used for /api calls and as root for resolving relative links in the webview previews. Do not include trailing slash '/'"
         },
         "lavaRunner.endpoint": {
           "type": "string",
+          "order": 1,
           "default": "/api/Lava/RenderTemplate",
           "description": "The API endpoint to run Lava files. (Default: /api/Lava/RenderTemplate)"
         },
         "lavaRunner.apiKey": {
           "type": "string",
+          "order": 2,
           "default": "",
           "description": "The API key for the Lava Runner service. Get from /admin/security/rest-keys in your Rock instance."
         },
-        "lavaRunner.themeCss": {
+        "lavaRunner.request.lavaToPrepend": {
           "type": "string",
+          "title": "Lava to Prepend to Each Request",
+          "order": 3,
+          "editPresentation": "multilineText",
+          "default": "\n",
+          "markdownDescription": "(Multi-Line) Use to set default HTML or Lava that will be prepended to each request.\n\n Useful to set Lava variables that will be used in your template. \n\n For Example: `{% assign CurrentPerson = 1234 | PersonById %}`\n\n(Default: empty)"
+        },
+        "lavaRunner.request.lavaToAppend": {
+          "type": "string",
+          "title": "Lava to Append to the end of each request.",
+          "order": 4,
+          "editPresentation": "multilineText",
+          "default": "\n",
+          "markdownDescription": "(Multi-Line) Use to set default HTML or Lava that will be appended to each request. \n\n For Example: `{% assign CurrentPerson = 1234 | PersonById %}`\n\n(Default: empty)"
+        },
+        "lavaRunner.preview.themeCss": {
+          "type": "string",
+          "order": 5,
           "default": "/Themes/Rock/Styles/theme.css",
           "description": "Relative path to your theme's CSS file. (Default: /Themes/Rock/Styles/theme.css)"
         },
-        "lavaRunner.fontAwesomeCdnLink": {
+        "lavaRunner.preview.fontAwesomeCdnUrl": {
           "type": "string",
+          "order": 6,
           "default": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css",
-          "description": "Url to load Font Awesome CSS file to make icons work. (Default: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css)"
+          "description": "Url to load Font Awesome CSS file to make icons work. Leave blank to not include. \n\n(Default: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css)"
         },
-        "lavaRunner.chartjsScript": {
+        "lavaRunner.preview.chartjsScriptUrl": {
           "type": "string",
+          "order": 7,
           "default": "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js",
-          "description": "Url to load Chart.js script from (Default: https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js)"
+          "description": "Url to load Chart.js script from. Leave blamk to not include.\n\n (Default: https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js)"
+        },
+        "lavaRunner.preview.headContent": {
+          "title": "Other Head Content",
+          "order": 8,
+          "type": "string",
+          "editPresentation": "multilineText",
+          "default": "\n",
+          "markdownDescription": "(Multi-Line) Content to include in the `<head>` of the preview. Use this to include custom CSS or JavaScript. (Default: empty)"
+        },
+        "lavaRunner.preview.startBody": {
+          "title": "Content to include at the start of the <body> of the preview.",
+          "order": 9,
+          "type": "string",
+          "editPresentation": "multilineText",
+          "default": "",
+          "markdownDescription": "(Multi-Line) Content to always include right after the opening `<body>` tag of the preview.\n\n Note: NOT Lava enabled. (Default: empty)"
+        },
+        "lavaRunner.preview.endBody": {
+          "title": "Content to include at the end right before the closing `</body>` tag of the preview.",
+          "order": 10,
+          "type": "string",
+          "editPresentation": "multilineText",
+          "default": "",
+          "markdownDescription": "(Multi-Line) Content to always include right before the closing `</body>` tag of the preview.\n\n Note: NOT Lava enabled. (Default: empty)"  
         }
       }
     },
