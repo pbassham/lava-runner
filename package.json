@@ -2,7 +2,7 @@
   "name": "lava-runner",
   "displayName": "Lava Runner",
   "description": "Execute RockRMS lava templating language from vscode and see the results!",
-  "version": "0.2.0",
+  "version": "0.3.1",
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -75,6 +75,16 @@
           "type": "string",
           "default": "/Themes/Rock/Styles/theme.css",
           "description": "Relative path to your theme's CSS file. (Default: /Themes/Rock/Styles/theme.css)"
+        },
+        "lavaRunner.fontAwesomeCdnLink": {
+          "type": "string",
+          "default": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css",
+          "description": "Url to load Font Awesome CSS file to make icons work. (Default: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css)"
+        },
+        "lavaRunner.chartjsScript": {
+          "type": "string",
+          "default": "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js",
+          "description": "Url to load Chart.js script from (Default: https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js)"
         }
       }
     },
@@ -101,7 +111,15 @@
           "name": "Entities"
         }
       ]
-    }
+    },
+    "keybindings": [
+      {
+        "command": "extension.runLavaFile",
+        "key": "ctrl+alt+l",
+        "mac": "cmd+alt+l",
+        "when": "editorTextFocus"
+      }
+    ]
   },
   "scripts": {
     "vscode:prepublish": "npm run package",

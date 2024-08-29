@@ -43,6 +43,7 @@ export function activate(context: vscode.ExtensionContext) {
         const rootUrl = config.get("rootUrl") as string;
         const endpoint = config.get("endpoint") as string;
         const themeCss = config.get("themeCss") as string;
+        const fontAwesomeCdnLink = config.get("fontAwesomeCdnLink") as string;
 
         axios
           .post(`${rootUrl}${endpoint}`, content, {
@@ -60,6 +61,11 @@ export function activate(context: vscode.ExtensionContext) {
     <link rel="stylesheet" href="${rootUrl}/Themes/Rock/Styles/bootstrap.css" type="text/css" />
     
     <link rel="stylesheet" href="${rootUrl}${themeCss}" type="text/css">
+    <script src="${rootUrl}/Scripts/Bundles/RockJQueryLatest"></script>
+    <script src="${rootUrl}/Scripts/Bundles/RockUI"></script>
+    <script src="${rootUrl}/Scripts/Bundles/RockLibs"></script>
+    <link rel="stylesheet" href="${fontAwesomeCdnLink}" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
     <!-- Other head content -->
 </head>
 <body>
@@ -78,7 +84,10 @@ export function activate(context: vscode.ExtensionContext) {
                 "lavaResults",
                 "Lava Results",
                 vscode.ViewColumn.Beside,
-                {}
+                {
+                  enableFindWidget: true,
+                  enableScripts: true
+                }
               );
 
               currentPanel.webview.html = htmlWithBase;
