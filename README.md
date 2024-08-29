@@ -48,6 +48,8 @@ Before you can use Lava Runner, make sure you have the following:
 3. Search for `Lava Runner`.
 4. Click on the `Install` button.
 
+![image](https://github.com/user-attachments/assets/feb6316d-bbcb-4ce4-acac-e2bfa225d166)
+
 ## Configuration
 
 To use Lava Runner, you need to configure it to communicate with your RockRMS server:
