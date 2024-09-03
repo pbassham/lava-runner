@@ -1,6 +1,9 @@
 # Change Log
 
 All notable changes to the "lava-runner" extension will be documented in this file.
+## [0.5.1]
+- Fixed the chart.js and font awesome scripts to be included in the preview panel
+
 ## [0.5.0]
 - Added Configuration options for the preview panel
 - Prepend and Append Lava to each request so that it is included in each response. Allows you to add Lava to be run at the beginning and end of each request. This is useful for setting variables that you want to use in each request.

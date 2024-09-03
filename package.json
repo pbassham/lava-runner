@@ -2,7 +2,7 @@
   "name": "lava-runner",
   "displayName": "Lava Runner",
   "description": "Execute RockRMS lava templating language from vscode and see the results!",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "engines": {
     "vscode": "^1.85.0"
   },

@@ -49,8 +49,8 @@ export function activate(context: vscode.ExtensionContext) {
         const rootUrl = config.get("rootUrl") as string;
         const endpoint = config.get("endpoint") as string;
         const themeCss = config.get("preview.themeCss") as string;
-        const fontAwesomeCdnUrl = config.get("preview.fontAwesomeCdnLink") as string;
-        const chartjsScriptUrl = config.get("preview.chartjsScript") as string;
+        const fontAwesomeCdnUrl = config.get("preview.fontAwesomeCdnUrl") as string;
+        const chartjsScriptUrl = config.get("preview.chartjsScriptUrl") as string;
         const headContent = config.get("preview.headContent") as string;
         const startBody = config.get("preview.startBody") as string;
         const endBody = config.get("preview.endBody") as string;
