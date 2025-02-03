@@ -2,7 +2,7 @@
   "name": "lava-runner",
   "displayName": "Lava Runner",
   "description": "Execute RockRMS lava templating language from vscode and see the results!",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -131,6 +131,12 @@
           "editPresentation": "multilineText",
           "default": "",
           "markdownDescription": "(Multi-Line) Content to always include right before the closing `</body>` tag of the preview.\n\n Note: NOT Lava enabled. (Default: empty)"  
+        },
+        "lavaRunner.preview.runTextSelection": {
+          "type": "boolean",
+          "order": 4,
+          "default": true,
+          "description": "Run only the selected text (if any) of the editor instead of the whole file contents. (Will still include the Lava to prepend and append.)"
         }
       }
     },

@@ -1,6 +1,9 @@
 # Change Log
 
 All notable changes to the "lava-runner" extension will be documented in this file.
+## [0.6.0]
+- Option to run only selected code, vs. the entire file contents
+
 ## [0.5.1]
 - Fixed the chart.js and font awesome scripts to be included in the preview panel
 

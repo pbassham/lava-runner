@@ -40,8 +40,19 @@ export function activate(context: vscode.ExtensionContext) {
         const config = vscode.workspace.getConfiguration("lavaRunner");
         const lavaToPrepend = config.get("request.lavaToPrepend") as string;
         const lavaToAppend = config.get("request.lavaToAppend") as string;
-
-        const content = editor.document.getText();
+        
+        // Get the content of the currently open file
+        let content = editor.document.getText();
+        
+        // If there is a selection, use that as the content
+        const runTextSelection = config.get("preview.runTextSelection") as boolean;
+        const selection = editor.selection;
+        if (!selection.isEmpty && runTextSelection) {
+          const selectedText = editor.document.getText(selection);
+          if (selectedText) {
+            content = selectedText;
+          }
+        }
         
         // prepend default lava variables to content 
         const contentWithDefaultLavaVariables = `${lavaToPrepend}\n${content}\n${lavaToAppend}`;
